@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성격 유형 설문</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✨ 성격 유형 설문 ✨</h1>
+    <p>아래의 질문에 답하여 나의 성격 유형을 확인해보세요!</p>
+    <form id="surveyForm">
+      <!-- 질문 1 -->
+      <div class="question-card">
+        <p>▶ 방학 때 무엇을 할 계획인가요?</p>
+        <label><input type="radio" name="q1" value="a"> (a) 다양한 친구들과 어울린다.</label><br>
+        <label><input type="radio" name="q1" value="b"> (b) 소수의 친구와 시간을 보낸다.</label><br>
+        <label><input type="radio" name="q1" value="c"> (c) 가족과 함께 보낸다.</label><br>
+        <label><input type="radio" name="q1" value="d"> (d) 집에서 나만의 시간을 즐긴다.</label>
+      </div>
+
+      <!-- 질문 2 -->
+      <div class="question-card">
+        <p>▶ 친구가 갑자기 마라탕 먹으러 가자고 한다. 계획에 없던 일인데...</p>
+        <label><input type="radio" name="q2" value="a"> (a) 바로 ㄱㄱ 외친다.</label><br>
+        <label><input type="radio" name="q2" value="b"> (b) 마라탕 가게 대충 정하고 간다.</label><br>
+        <label><input type="radio" name="q2" value="c"> (c) 후기 좋은 곳으로 간다.</label><br>
+        <label><input type="radio" name="q2" value="d"> (d) 할 일을 파악한 후 간다.</label>
+      </div>
+
+      <!-- 질문 3 -->
+      <div class="question-card">
+        <p>▶ 팀플 중 어떤 환경을 선호하나요?</p>
+        <label><input type="radio" name="q3" value="a"> (a) 자유롭고 창의적인 분위기</label><br>
+        <label><input type="radio" name="q3" value="b"> (b) 소통이 활발한 환경</label><br>
+        <label><input type="radio" name="q3" value="c"> (c) 조용하고 안정된 환경</label><br>
+        <label><input type="radio" name="q3" value="d"> (d) 질서와 규율이 잡힌 환경</label>
+      </div>
+
+      <!-- 질문 4 -->
+      <div class="question-card">
+        <p>▶ 디즈니랜드에 가고 싶지만 친구는 가기 싫다 한다... 나의 반응은?</p>
+        <label><input type="radio" name="q4" value="a"> (a) 적극적으로 설득한다.</label><br>
+        <label><input type="radio" name="q4" value="b"> (b) 양보점을 찾으며 타협한다.</label><br>
+        <label><input type="radio" name="q4" value="c"> (c) 고민한 의견 전달 후 상황을 지켜본다.</label><br>
+        <label><input type="radio" name="q4" value="d"> (d) 논리적으로 대화하며 해결하려 한다.</label>
+      </div>
+
+      <!-- 질문 5 -->
+      <div class="question-card">
+        <p>▶ 중요한 발표를 앞두고 있을 때, 어떻게 준비하나요?</p>
+        <label><input type="radio" name="q5" value="a"> (a) 큰 틀만 정리하고 즉흥적으로 한다.</label><br>
+        <label><input type="radio" name="q5" value="b"> (b) 친구나 동료 의견을 구하며 준비한다.</label><br>
+        <label><input type="radio" name="q5" value="c"> (c) 차분히 세부 사항까지 준비한다.</label><br>
+        <label><input type="radio" name="q5" value="d"> (d) 발표 연습을 반복하며 완벽하게 준비한다.</label>
+      </div>
+
+      <!-- 결과 확인 버튼 -->
+      <button type="button" onclick="calculateResult()">결과 확인하기</button>
+    </form>
+
+    <!-- 결과 표시 -->
+    <div id="result"></div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
