@@ -7,8 +7,7 @@ function calculateResult() {
   let unanswered = questions.filter(q => !answers.get(q));
 
   if (unanswered.length > 0) {
-    document.getElementById('result').innerText = 
-      `모든 질문에 응답해주세요! (${unanswered.join(", ")})`;
+    alert(`모든 질문에 응답해주세요! (${unanswered.join(", ")})`);
     return;
   }
 
@@ -24,25 +23,35 @@ function calculateResult() {
   let maxScore = Math.max(...Object.values(scores));
   let personality = Object.keys(scores).find(key => scores[key] === maxScore);
 
-  // 성격 유형 결과 텍스트
-  let resultText = '';
+  // 성격 유형 결과 이미지 경로 설정
+  let imagePath = '';
   switch (personality) {
     case 'a':
-      resultText = "당신은 A유형🥳\n관련 키워드: 자유, 외향적, 도전적, 창의적, 즉흥적, 활발, 새로운 상황 잘 적응, 감각적, 직관적";
+      imagePath = 'static/images/type_a.jpg'; // Type A 이미지
       break;
     case 'b':
-      resultText = "당신은 B유형🥳\n관련 키워드: 사교적, 조화로움, 유연함, 다수보다는 소수와의 깊은 유대, 신중한 면(주변 의견 많이 반영)";
+      imagePath = 'static/images/type_b.jpg'; // Type B 이미지
       break;
     case 'c':
-      resultText = "당신은 C유형🥳\n관련 키워드: 차분, 내성적, 안정감, 신중, 깊이 있는 사고, 논리적 사고, 체계적(인 계획)";
+      imagePath = 'static/images/type_c.jpg'; // Type C 이미지
       break;
     case 'd':
-      resultText = "당신은 D유형🥳\n관련 키워드: 신중, 계획적, 질서&규율 중시, (감정보다) 논리와 객관성 중시, 완벽함 추구";
+      imagePath = 'static/images/type_d.jpg'; // Type D 이미지
       break;
     default:
-      resultText = "결과를 계산할 수 없습니다. 모든 문제를 다 풀어주세요!";
+      alert("결과를 계산할 수 없습니다.");
+      return;
   }
 
-  // 결과 표시
-  document.getElementById('result').innerText = resultText;
+  // 결과 이미지 업데이트 및 모달 표시
+  const resultImage = document.getElementById('resultImage');
+  resultImage.src = imagePath;
+  resultImage.alt = `Type ${personality.toUpperCase()} Result`;
+
+  document.getElementById('resultModal').style.display = "block";
+}
+
+// 모달 닫기
+function closeModal() {
+  document.getElementById('resultModal').style.display = "none";
 }
