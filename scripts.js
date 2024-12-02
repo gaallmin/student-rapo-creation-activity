@@ -23,19 +23,24 @@ function calculateResult() {
   let maxScore = Math.max(...Object.values(scores));
   let personality = Object.keys(scores).find(key => scores[key] === maxScore);
 
-  // 성격 유형 결과 이미지 경로 설정
+  // 성격 유형 이름과 이미지 경로 설정
+  let personalityName = '';
   let imagePath = '';
   switch (personality) {
     case 'a':
+      personalityName = '조아핑';
       imagePath = 'static/images/type_a.jpg'; // Type A 이미지
       break;
     case 'b':
+      personalityName = '딱풀핑';
       imagePath = 'static/images/type_b.jpg'; // Type B 이미지
       break;
     case 'c':
+      personalityName = '믿어핑';
       imagePath = 'static/images/type_c.jpg'; // Type C 이미지
       break;
     case 'd':
+      personalityName = '아자핑';
       imagePath = 'static/images/type_d.jpg'; // Type D 이미지
       break;
     default:
@@ -47,7 +52,7 @@ function calculateResult() {
   const width = Math.min(window.innerWidth * 0.8, 600); // 최대 600px
   const height = Math.min(window.innerHeight * 0.8, 400); // 최대 400px
 
-  // 팝업 창에서 이미지 표시
+  // 팝업 창에서 이미지와 결과 표시
   const popup = window.open('', '_blank', `width=${width},height=${height},scrollbars=no,resizable=no`);
   popup.document.write(`
     <html>
@@ -68,9 +73,9 @@ function calculateResult() {
         </style>
       </head>
       <body>
-        <h2>당신의 테스트 결과</h2>
-        <img src="${imagePath}" alt="Type ${personality.toUpperCase()}">
-        <p>이 결과는 성격 유형 ${personality.toUpperCase()}를 나타냅니다.</p>
+        <h2>✨ 당신은 ${personalityName} 유형인 것 같아요! ✨</h2>
+        <img src="${imagePath}" alt="Type ${personalityName}">
+        <p>이 결과는 당신의 성격과 잘 맞는 ${personalityName} 유형을 나타냅니다.</p>
       </body>
     </html>
   `);
