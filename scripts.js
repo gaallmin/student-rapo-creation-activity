@@ -66,7 +66,6 @@ function calculateResult() {
             background-color: #f9f9f9;
           }
           img {
-            max-width: 200%;
             height: auto;
             border-radius: 20px;
           }
