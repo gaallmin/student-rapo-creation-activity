@@ -49,8 +49,8 @@ function calculateResult() {
   }
 
   // 동적으로 팝업 크기 조정 (화면 크기의 80%)
-  const width = Math.min(window.innerWidth * 0.8, 600); // 최대 600px
-  const height = Math.min(window.innerHeight * 0.8, 400); // 최대 400px
+  const width = Math.min(window.innerWidth); // 최대 600px , * 0.8, 600
+  const height = Math.min(window.innerHeight); // 최대 400px, * 0.8, 400
 
   // 팝업 창에서 이미지와 결과 표시
   const popup = window.open('', '_blank', `width=${width},height=${height},scrollbars=no,resizable=no`);
@@ -66,9 +66,9 @@ function calculateResult() {
             background-color: #f9f9f9;
           }
           img {
-            max-width: 100%;
+            max-width: 200%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 20px;
           }
         </style>
       </head>
