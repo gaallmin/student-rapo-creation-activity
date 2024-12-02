@@ -27,31 +27,47 @@ function calculateResult() {
   let imagePath = '';
   switch (personality) {
     case 'a':
-      imagePath = 'static/images/type_a.jpg'; // Type A 이미지
+      imagePath = 'images/type_a.jpg'; // Type A 이미지
       break;
     case 'b':
-      imagePath = 'static/images/type_b.jpg'; // Type B 이미지
+      imagePath = 'images/type_b.jpg'; // Type B 이미지
       break;
     case 'c':
-      imagePath = 'static/images/type_c.jpg'; // Type C 이미지
+      imagePath = 'images/type_c.jpg'; // Type C 이미지
       break;
     case 'd':
-      imagePath = 'static/images/type_d.jpg'; // Type D 이미지
+      imagePath = 'images/type_d.jpg'; // Type D 이미지
       break;
     default:
       alert("결과를 계산할 수 없습니다.");
       return;
   }
 
-  // 결과 이미지 업데이트 및 모달 표시
-  const resultImage = document.getElementById('resultImage');
-  resultImage.src = imagePath;
-  resultImage.alt = `Type ${personality.toUpperCase()} Result`;
-
-  document.getElementById('resultModal').style.display = "block";
-}
-
-// 모달 닫기
-function closeModal() {
-  document.getElementById('resultModal').style.display = "none";
+  // 팝업 창에서 이미지 표시
+  const popup = window.open('', '_blank', 'width=600,height=400');
+  popup.document.write(`
+    <html>
+      <head>
+        <title>테스트 결과</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+          }
+        </style>
+      </head>
+      <body>
+        <h2>당신의 테스트 결과</h2>
+        <img src="${imagePath}" alt="Type ${personality.toUpperCase()}">
+        <p>이 결과는 성격 유형 ${personality.toUpperCase()}를 나타냅니다.</p>
+      </body>
+    </html>
+  `);
 }
