@@ -1,13 +1,13 @@
 body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to right, #ece9e6, #ffffff);
-  margin: 1em;
-  padding: 1em;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   max-width: 700px;
-  margin: 50px auto;
+  margin: 20px auto;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -26,10 +26,10 @@ p {
 }
 
 .question-card {
-  background: #fef6ab;
+  background: #f9f9f9;
   margin: 20px 0;
   padding: 15px;
-  border: 5px solid #c2c2fb;
+  border: 1px solid #ddd;
   border-radius: 8px;
   text-align: left;
 }
@@ -37,7 +37,6 @@ p {
 .question-card p {
   font-size: 1.1rem;
   font-weight: bold;
-  text-align: center;
 }
 
 label {
@@ -63,12 +62,51 @@ button:hover {
   background-color: #45a049;
 }
 
-#result {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f9f9f9;
-  border: 2px solid #4CAF50;
-  border-radius: 5px;
-  color: #333;
-  font-size: 1.2rem;
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .question-card {
+    padding: 10px;
+    margin: 15px 0;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 5px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .question-card p {
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
 }

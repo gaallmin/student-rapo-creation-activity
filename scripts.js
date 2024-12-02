@@ -27,24 +27,28 @@ function calculateResult() {
   let imagePath = '';
   switch (personality) {
     case 'a':
-      imagePath = 'images/type_a.jpg'; // Type A 이미지
+      imagePath = 'static/images/type_a.jpg'; // Type A 이미지
       break;
     case 'b':
-      imagePath = 'images/type_b.jpg'; // Type B 이미지
+      imagePath = 'static/images/type_b.jpg'; // Type B 이미지
       break;
     case 'c':
-      imagePath = 'images/type_c.jpg'; // Type C 이미지
+      imagePath = 'static/images/type_c.jpg'; // Type C 이미지
       break;
     case 'd':
-      imagePath = 'images/type_d.jpg'; // Type D 이미지
+      imagePath = 'static/images/type_d.jpg'; // Type D 이미지
       break;
     default:
       alert("결과를 계산할 수 없습니다.");
       return;
   }
 
+  // 동적으로 팝업 크기 조정 (화면 크기의 80%)
+  const width = Math.min(window.innerWidth * 0.8, 600); // 최대 600px
+  const height = Math.min(window.innerHeight * 0.8, 400); // 최대 400px
+
   // 팝업 창에서 이미지 표시
-  const popup = window.open('', '_blank', 'width=600,height=400');
+  const popup = window.open('', '_blank', `width=${width},height=${height},scrollbars=no,resizable=no`);
   popup.document.write(`
     <html>
       <head>
